@@ -1,4 +1,5 @@
 # 0부터 나무 길이 최대값 까지의 범위를 이진 탐색하며 절단기 높이의 최대값을 구한다.
+# 이 문제는 python3로 제출하면 시간 초과가 나고, pypy3로 제출하면 통과된다. 이후에 이유 알아보기.
 n, m = map(int, input().split())
 
 trees = list(map(int, input().split()))
