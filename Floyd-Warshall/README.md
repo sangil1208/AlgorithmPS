@@ -55,7 +55,7 @@ for k in range(1, n+1):
 # 결과 출력
 for a in range(1, n+1):
     for b in range(1, n+1):
-        if graph[a][b] = INF:
+        if graph[a][b] == INF:
             print("INF", end=' ')
         else:
             print(graph[a][b], end=' ')
