@@ -10,24 +10,28 @@
     
 # print(graph)
                  
-import sys 
-input = sys.stdin.readline
-
-n = int(input())
-
-num = list(map(int, input().split()))
-res = 0
-
-for i in range(n):
-    cnt = 0
-    for j in range(1, num[i]+1):
-        if num[i]%j == 0:
-            cnt += 1
-    if cnt == 2:
-        res+=1
-
-print(res)
+while True:
+    str = input().rstrip()
+    if str == ".":
+        break
     
-        
+    stack = []
+    br = ['(', ')', '[', ']']
     
+    for i in range(len(str)):
+        for b in br:
+            if str[i] == b:
+                stack.append(b)
+                
+    print(stack)
     
+    for i in range(len(stack)-2):
+        if stack[i] == '(' and stack[i+1] == ')':
+            stack.pop(i)
+            stack.pop(i)
+            
+        if stack[i] == '[' and stack[i+1] == ']':
+            stack.pop(i)
+            stack.pop(i)
+
+    print(stack)
