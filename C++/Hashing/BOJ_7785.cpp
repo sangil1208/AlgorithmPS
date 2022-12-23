@@ -83,13 +83,19 @@ int main() {
 		}
 		else { // leave 입력
 			ull h = my_hash(name);
-			HASH* nd = Hash[h].next;
 
-			while (nd) {
-				if (!strcmp(nd->db->name, name) && nd->db->in) {
-					nd->db->in = 0;
+			// in flag = 0을 통해 삭제된것 처럼 보이게 하는것보다 (HASH* nd = Hash[h].next;)
+			// 실제로 노드를 삭제하면 탐색을 줄일 수 있다.
+
+			HASH* nd = &Hash[h]; //head 자체의 주소를 받는다
+
+			while (nd->next) {
+				if (!strcmp(nd->next->db->name, name)) {
+					nd->next->db->in = 0;
+					nd->next = nd->next->next;
 					break;
-				}
+				} // 이건 next를 직접적으로 바꾼다 (in=0 하면서 연결을 끊어버린다.)
+				// enterList에서 무시하기 위해 연결을 끊어도 in=0으로 바꿔야 한다.
 				nd = nd->next;
 			}
 		}
