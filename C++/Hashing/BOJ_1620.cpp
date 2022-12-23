@@ -12,6 +12,7 @@ string 관련 라이브러리 사용시 속도 저하, 문자열 비교 및 복사는 직접 구현
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef unsigned long long int ull;
 
@@ -53,25 +54,6 @@ int mystrcmp(const char* a, const char* b) { // 암기. 직접 구현 필요
 	return *a - *b;
 }
 
-int change(char* str)
-{
-	int i, len;
-	int sum, mul;
-
-	sum = 0;
-	mul = 1;
-
-	for (i = 0; str[i]; i++);
-	len = i;
-
-	for (i = len - 1; i >= 0; i--)
-	{
-		sum += (str[i] - '0') * mul;
-		mul *= 10;
-	}
-
-	return sum;
-}
 
 int main(void) {
 
@@ -87,12 +69,12 @@ int main(void) {
 		POKEMON* nd = &POOL[pcnt++];
 
 		nd->index = i;
-		mystrcpy(nd->name, str);
+		strcpy(nd->name, str);
 
 		nd->next = HASH_TABLE[h].next;
 		HASH_TABLE[h].next = nd; /* name에 해당하는 key에 연결 */
 
-		mystrcpy(ARR[i].name, str); /* 순서대로 저장 */
+		strcpy(ARR[i].name, str); /* 순서대로 저장 */
 	}
 
 	for (int i = 0; i < M; i++)
