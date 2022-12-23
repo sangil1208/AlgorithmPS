@@ -1,7 +1,7 @@
 // 존재 여부 확인만 하면 되므로 pointer 없는 해시 사용?
 
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_TABLE 10100
+#define MAX_TABLE 17909
 
 #include <stdio.h>
 #include <string.h>
@@ -17,7 +17,7 @@ typedef struct st {
 }SET;
 
 SET HASH_TABLE[MAX_TABLE];
-SET POOL[MAX_TABLE + 1000];
+SET POOL[MAX_TABLE];
 
 int pcnt = 0;
 
@@ -34,7 +34,22 @@ unsigned long long hash(const char* str)
     return hash % MAX_TABLE;
 }
 
+bool isPrime(int n) {
+    for (register int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
+
+
 int main(void) {
+
+    //for (register int i = 10000; i <= 20000; i++) {
+    //    if (isPrime(i) == true)
+    //        printf("%d\n", i);
+    //}
+
 
     char input[501];
 
