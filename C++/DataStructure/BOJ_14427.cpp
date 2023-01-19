@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
-#define HMAX 200100
+#define HMAX 100002
 
 typedef struct st1 {
 	int value;
