@@ -1,2 +1,5 @@
 ﻿  practice.cpp
-  Solving.vcxproj -> E:\Study\AlgorithmPS\C++\Solving\x64\Debug\Solving.exe
+E:\Study\AlgorithmPS\C++\Solving\Solving\practice.cpp(85,4): error C2561: 'HEAP::pop': 함수는 값을 반환해야 합니다.
+E:\Study\AlgorithmPS\C++\Solving\Solving\practice.cpp(83): message : 'HEAP::pop' 선언을 참조하십시오.
+E:\Study\AlgorithmPS\C++\Solving\Solving\practice.cpp(97,1): error C2082: 'index' 정식 매개 변수 재정의
+E:\Study\AlgorithmPS\C++\Solving\Solving\practice.cpp(150,14): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
